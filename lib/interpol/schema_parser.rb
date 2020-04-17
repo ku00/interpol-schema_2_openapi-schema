@@ -9,7 +9,7 @@ module Interpol
     end
 
     def response_params
-      { "schema" => schema.dig("definitions", 1, "schema") }
+      schema.dig("definitions", 1, "schema")
     end
   end
 end
