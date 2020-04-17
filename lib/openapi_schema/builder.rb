@@ -1,5 +1,5 @@
-module Openapi
-  class SchemaBuilder
+module OpenapiSchema
+  class Builder
     attr_reader :base_schema
 
     def initialize(base_schema)

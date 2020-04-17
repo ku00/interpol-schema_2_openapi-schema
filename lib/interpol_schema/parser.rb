@@ -1,7 +1,7 @@
 require 'yaml'
 
-module Interpol
-  class SchemaParser
+module InterpolSchema
+  class Parser
     attr_reader :schema
 
     def initialize(path)
