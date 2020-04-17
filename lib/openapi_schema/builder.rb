@@ -11,7 +11,9 @@ module OpenapiSchema
         "#{base_schema.http_method.downcase}" => {
           "summary" => "summary",
           "description" => "description",
-          "parameters" => [],
+          "parameters" => [
+            request_params_in_body,
+          ],
           "responses" => {
             "#{base_schema.response_code}" => {
               "description" => "response description",
@@ -19,6 +21,13 @@ module OpenapiSchema
             }
           }
         }
+      }
+    end
+
+    def request_params_in_body
+      {
+        "in" => "body",
+        "schema" => base_schema.request_params_in_body
       }
     end
   end
