@@ -8,6 +8,10 @@ module Interpol
       @schema = YAML.load_file path
     end
 
+    def http_method
+      schema.dig("method")
+    end
+
     def request_params_in_path
       schema.dig("definitions", 0, "path_params")
     end
@@ -19,6 +23,10 @@ module Interpol
     # For OpenAPI v2
     def request_params_in_body
       schema.dig("definitions", 0, "query_params")
+    end
+
+    def response_code
+      schema.dig("definitions", 1, "status_codes", 0)
     end
 
     def response_params
