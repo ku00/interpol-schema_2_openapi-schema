@@ -20,11 +20,6 @@ module InterpolSchema
       schema.dig("definitions", 0, "query_params")
     end
 
-    # For OpenAPI v2
-    def request_params_in_body
-      schema.dig("definitions", 0, "query_params")
-    end
-
     def response_code
       schema.dig("definitions", 1, "status_codes", 0)
     end

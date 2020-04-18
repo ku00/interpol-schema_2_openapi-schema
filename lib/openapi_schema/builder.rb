@@ -24,16 +24,16 @@ module OpenapiSchema
 
     def request_params
       [
-        request_params_in_body,
+        request_params_in_query,
       ].compact
     end
 
-    def request_params_in_body
-      return if base_schema.request_params_in_body === {}
+    def request_params_in_query
+      return if base_schema.request_params_in_query === {}
 
       {
-        "in" => "body",
-        "schema" => base_schema.request_params_in_body
+        "in" => "query",
+        "schema" => base_schema.request_params_in_query
       }
     end
   end
