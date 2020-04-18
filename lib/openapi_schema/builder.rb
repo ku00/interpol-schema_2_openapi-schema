@@ -24,8 +24,18 @@ module OpenapiSchema
 
     def request_params
       [
+        request_params_in_path,
         request_params_in_query,
       ].compact
+    end
+
+    def request_params_in_path
+      return if base_schema.request_params_in_path === {}
+
+      {
+        "in" => "path",
+        "schema" => base_schema.request_params_in_path
+      }
     end
 
     def request_params_in_query
