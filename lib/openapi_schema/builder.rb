@@ -52,9 +52,8 @@ module OpenapiSchema
           "in" => "query",
           "name" => name,
           "type" => detail["type"],
-        }.merge(
-          enum_params(detail)
-        )
+        }.merge(enum_params(detail))
+          .merge(required_param(detail))
       end
     end
 
@@ -63,6 +62,14 @@ module OpenapiSchema
 
       {
         "enum" => target["enum"],
+      }
+    end
+
+    def required_param(target)
+      return {} if target["optional"].nil? || target["optional"] === true
+
+      {
+        "required" => true
       }
     end
 
