@@ -26,16 +26,20 @@ module OpenapiSchema
       [
         request_params_in_path,
         request_params_in_query,
-      ].compact
+      ].flatten.compact
     end
 
     def request_params_in_path
       return if base_schema.request_params_in_path === {}
 
-      {
-        "in" => "path",
-        "schema" => base_schema.request_params_in_path
-      }
+      base_schema.request_params_in_path["properties"].map do |name, detail|
+        {
+          "in" => "path",
+          "name" => name,
+          "type" => detail["type"],
+          "required" => true,
+        }
+      end
     end
 
     def request_params_in_query
