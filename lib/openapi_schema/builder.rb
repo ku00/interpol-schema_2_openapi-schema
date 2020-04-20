@@ -38,7 +38,9 @@ module OpenapiSchema
           "name" => name,
           "type" => detail["type"],
           "required" => true,
-        }
+        }.merge(
+          enum_params(detail)
+        )
       end
     end
 
@@ -50,8 +52,18 @@ module OpenapiSchema
           "in" => "query",
           "name" => name,
           "type" => detail["type"],
-        }
+        }.merge(
+          enum_params(detail)
+        )
       end
+    end
+
+    def enum_params(target)
+      return {} if target["enum"].nil?
+
+      {
+        "enum" => target["enum"],
+      }
     end
   end
 end
