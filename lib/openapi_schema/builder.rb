@@ -45,10 +45,13 @@ module OpenapiSchema
     def request_params_in_query
       return if base_schema.request_params_in_query === {}
 
-      {
-        "in" => "query",
-        "schema" => base_schema.request_params_in_query
-      }
+      base_schema.request_params_in_query["properties"].map do |name, detail|
+        {
+          "in" => "query",
+          "name" => name,
+          "type" => detail["type"],
+        }
+      end
     end
   end
 end
