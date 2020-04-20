@@ -30,7 +30,7 @@ module OpenapiSchema
     end
 
     def request_params_in_path
-      return if base_schema.request_params_in_path === {}
+      return if empty_param?(base_schema.request_params_in_path)
 
       base_schema.request_params_in_path["properties"].map do |name, detail|
         {
@@ -45,7 +45,7 @@ module OpenapiSchema
     end
 
     def request_params_in_query
-      return if base_schema.request_params_in_query === {}
+      return if empty_param?(base_schema.request_params_in_query)
 
       base_schema.request_params_in_query["properties"].map do |name, detail|
         {
@@ -64,6 +64,10 @@ module OpenapiSchema
       {
         "enum" => target["enum"],
       }
+    end
+
+    def empty_param?(target)
+      target.nil? || target === {}
     end
   end
 end
