@@ -17,6 +17,12 @@ module InterpolSchema2OpenapiSchema
       ).build
     end
 
+    map %w[--version -v] => :version
+    desc "--version, -v", "Print the version"
+    def version
+      puts InterpolSchema2OpenapiSchema::VERSION
+    end
+
     # To make build-command available in no calling itself
     ARGV.unshift(self.default_command) unless self.all_tasks.has_key?(ARGV[0]) || self.instance_variable_get(:@map).has_key?(ARGV[0])
   end
