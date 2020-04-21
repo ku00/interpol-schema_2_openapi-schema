@@ -1,8 +1,10 @@
 # InterpolSchema2OpenapiSchema
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/interpol_schema_2_openapi_schema`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides the CLI to convert [Interpol](https://github.com/seomoz/interpol) endpoint definition to [OpenAPI](https://github.com/OAI/OpenAPI-Specification) definition.
 
-TODO: Delete this and the text above, and describe your gem
+## Supported OpenAPI Version
+
+- OpenAPI 2.0
 
 ## Installation
 
@@ -22,7 +24,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Convert to Path Objects
+
+Give an endpoint definition yaml.
+
+```
+$ istos ./path/to/index.yaml
+
+# dump to stdout
+```
 
 ## Development
 
