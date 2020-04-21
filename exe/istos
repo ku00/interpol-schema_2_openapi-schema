@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "interpol_schema_2_openapi_schema"
+
+InterpolSchema2OpenapiSchema::Cli.start(ARGV)
