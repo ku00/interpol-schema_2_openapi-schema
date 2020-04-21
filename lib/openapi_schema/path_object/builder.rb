@@ -1,3 +1,5 @@
+require 'yaml'
+
 module OpenapiSchema
   module PathObject
     class Builder
@@ -5,6 +7,10 @@ module OpenapiSchema
 
       def initialize(interpol_schema)
         @interpol_schema = interpol_schema
+      end
+
+      def build
+        base_template.to_yaml
       end
 
       def base_template
