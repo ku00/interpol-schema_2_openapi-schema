@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["ku00"]
   spec.email         = ["skentaro36@gmail.com"]
 
-  spec.summary       = %q{Convert Interpol schema to OpenAPI schema.}
-  spec.description   = %q{Convert Interpol schema to OpenAPI schema.}
+  spec.summary       = %q{Convert Interpol definition to OpenAPI definition.}
+  spec.description   = %q{Convert Interpol definition to OpenAPI definition.}
   spec.homepage      = "https://github.com/ku00/interpol_schema_2_openapi_schema"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.7.1")
 
